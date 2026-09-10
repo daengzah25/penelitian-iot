@@ -1,58 +1,153 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Pternak
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Pternak adalah sistem monitoring ternak berbasis web untuk membantu peternak memantau kondisi sapi dan kambing secara terpusat. Sistem ini menggabungkan dashboard kesehatan ternak, pengelolaan data hewan, perangkat IoT, serta riwayat penjaringan kesehatan.
 
-## About Laravel
+## Teknologi
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Laravel 13
+- Inertia.js
+- React dengan TypeScript
+- Tailwind CSS
+- Recharts
+- Lucide React
+- MySQL atau SQLite
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Fitur Utama
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Dashboard ringkasan jumlah ternak, status sehat, dan alert aktif.
+- Grafik perkembangan bobot berdasarkan riwayat penjaringan.
+- CRUD data hewan dengan modal popup yang responsif.
+- Detail hewan dan riwayat penjaringan kesehatan.
+- CRUD perangkat IoT dan relasi perangkat dengan hewan.
+- Deteksi status alert dari data kesehatan ternak.
+- Autentikasi, pengaturan profile, dan pengelolaan password.
+- Navigasi desktop dan bottom navigation untuk perangkat mobile.
+- Endpoint API untuk menerima data penjaringan dari perangkat IoT.
 
-## Learning Laravel
+## Tampilan Sistem
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Screenshot berikut disusun sesuai alur penggunaan sistem.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 1. Landing Page
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+Halaman awal yang memperkenalkan Pternak dan menyediakan akses login atau registrasi.
 
-## Agentic Development
+![Landing Page](public/images/screenshot/Landing.png)
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+### 2. Login
+
+Halaman autentikasi untuk pengguna yang sudah memiliki akun.
+
+![Halaman Login](public/images/screenshot/Login.png)
+
+### 3. Register
+
+Halaman pendaftaran akun pengguna baru.
+
+![Halaman Register](public/images/screenshot/Register.png)
+
+### 4. Dashboard
+
+Dashboard menampilkan ringkasan kondisi ternak dan grafik perkembangan bobot.
+
+![Dashboard](public/images/screenshot/Dashboard.png)
+
+### 5. Data Hewan
+
+Halaman pengelolaan data sapi dan kambing, termasuk aksi tambah, edit, detail, dan hapus melalui modal.
+
+![Data Hewan](public/images/screenshot/DataHewan.png)
+
+### 6. Detail Hewan
+
+Detail profil hewan beserta riwayat penjaringan kesehatan, bobot, suhu, sumber data, catatan, dan status alert.
+
+![Detail Hewan](public/images/screenshot/DataHewanDetail.png)
+
+### 7. Alat IoT
+
+Halaman registrasi dan pengelolaan perangkat IoT yang terhubung dengan ternak.
+
+![Alat IoT](public/images/screenshot/AlatIoT.png)
+
+## Persyaratan Sistem
+
+Pastikan perangkat sudah memiliki:
+
+- PHP 8.2 atau lebih baru
+- Composer
+- Node.js dan npm
+- Database MySQL atau SQLite
+
+## Instalasi
+
+1. Clone repository dan masuk ke folder project:
+
+   ```bash
+   git clone https://github.com/daengzah25/penelitian-iot.git
+   cd penelitian-iot
+   ```
+
+2. Install dependency PHP:
+
+   ```bash
+   composer install
+   ```
+
+3. Install dependency frontend:
+
+   ```bash
+   npm install
+   ```
+
+4. Salin konfigurasi environment:
+
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
+
+5. Atur koneksi database di file `.env`, kemudian jalankan migrasi:
+
+   ```bash
+   php artisan migrate
+   ```
+
+6. Jalankan server Laravel dan Vite:
+
+   ```bash
+   php artisan serve
+   npm run dev
+   ```
+
+   Aplikasi dapat dibuka di `http://127.0.0.1:8000`.
+
+## Build Production
+
+Untuk membuat asset frontend production:
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+npm run build
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+## API Perangkat IoT
 
-## Contributing
+Perangkat IoT dapat mengirim data penjaringan melalui endpoint:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```text
+POST /api/iot/health-checks
+```
 
-## Code of Conduct
+Gunakan token perangkat pada header autentikasi sesuai konfigurasi middleware aplikasi. Data yang dikirim digunakan untuk memperbarui riwayat kesehatan dan status alert hewan.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Pengujian
 
-## Security Vulnerabilities
+Jalankan test backend dengan perintah:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+php artisan test
+```
 
-## License
+## Lisensi
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Project ini dikembangkan untuk kebutuhan penelitian dan pengembangan sistem monitoring ternak.

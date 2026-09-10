@@ -1,10 +1,10 @@
 import { Head, Link } from '@inertiajs/react';
+import ApplicationLogo from '@/Components/ApplicationLogo';
 import {
     Activity,
     ArrowRight,
     BellRing,
     Cpu,
-    PawPrint,
     ShieldCheck,
 } from 'lucide-react';
 
@@ -36,7 +36,7 @@ export default function Welcome({ auth }: { auth?: { user?: { name?: string } } 
                     <nav className="flex items-center justify-between rounded-full border border-sky-100 bg-white/80 px-4 py-3 shadow-sm shadow-sky-100 backdrop-blur">
                         <Link href="/" className="flex items-center gap-3">
                             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-600 text-white shadow-sm shadow-sky-200">
-                                <PawPrint className="h-5 w-5" />
+                                <ApplicationLogo className="h-5 w-5" />
                             </div>
                             <div>
                                 <div className="text-xs font-semibold tracking-[0.22em] text-sky-700 uppercase">

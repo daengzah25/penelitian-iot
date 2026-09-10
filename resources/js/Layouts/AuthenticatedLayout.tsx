@@ -1,4 +1,5 @@
 import Dropdown from '@/Components/Dropdown';
+import ApplicationLogo from '@/Components/ApplicationLogo';
 import NavLink from '@/Components/NavLink';
 import { Link, usePage } from '@inertiajs/react';
 import {
@@ -71,7 +72,7 @@ export default function Authenticated({
                         <div className="flex min-w-0 items-center gap-4">
                             <Link href={route('dashboard')} className="flex items-center gap-3">
                                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-600 text-white shadow-sm shadow-sky-200">
-                                    <PawPrint className="h-5 w-5" />
+                                    <ApplicationLogo className="h-5 w-5" />
                                 </div>
                                 <div className="hidden sm:block">
                                     <div className="text-sm font-semibold tracking-[0.18em] text-sky-700 uppercase">
